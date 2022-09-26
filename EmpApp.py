@@ -130,19 +130,19 @@ def attendance():
 def checkIn():
     emp_id = request.form['emp_id']
 
-    #UPDATE STATEMENT
-    update_stmt= "UPDATE employee SET check_in =(%(check_in)s) WHERE emp_id = %(emp_id)s"
+    #insert STATEMENT
+    insert_statement="INSERT INTO attendance VALUES (%s,%s,%s)"
 
     cursor = db_conn.cursor()
 
-    LoginTime = datetime.now()
-    formatted_login = LoginTime.strftime('%Y-%m-%d %H:%M:%S')
-    print ("Check in time:{}",formatted_login)
-
+    CheckinTime = datetime.now()
+    formatted_checkin = CheckinTime.strftime('%Y-%m-%d %H:%M:%S')
+    print ("Check in time:{}",formatted_checkin)
+    
     try:
-        cursor.execute(update_stmt, { 'check_in': formatted_login ,'emp_id':int(emp_id)})
+        cursor.execute(insert_statement,(emp_id,formatted_checkin,""))
         db_conn.commit()
-        print(" Data Updated into MySQL")
+        print(" Data Inserted into MySQL")
 
     except Exception as e:
         return str(e)
@@ -150,47 +150,50 @@ def checkIn():
     finally:
         cursor.close()
         
-    return render_template("AttendanceOutput.html",date=datetime.now(), LoginTime=formatted_login)
+    return render_template("AttendanceOutput.html",date=datetime.now(), CheckinTime=formatted_checkin)
 
 
 #check out button
 @app.route("/attendance/output",methods=['GET','POST'])
 def checkOut():
     emp_id = request.form['emp_id']
-    # SELECT STATEMENT TO GET DATA FROM MYSQL
-    select_stmt = "SELECT check_in FROM employee WHERE emp_id = %(emp_id)s"
-    insert_statement="INSERT INTO attendance VALUES (%s,%s,%s,%s)"
-    
 
+    # update statement
+    update_stmt= "UPDATE attendance SET check_out =(%(check_out)s) WHERE emp_id = %(emp_id)s"
+    #select statement
+    select_stmt = "SELECT check_in FROM attendance WHERE emp_id = %(emp_id)s"
+    
     cursor = db_conn.cursor()
-        
+
+    # CheckoutTime = datetime.now()
+    # formatted_checkout = CheckoutTime.strftime('%Y-%m-%d %H:%M:%S')
+    # print ("Check out time:{}",formatted_checkout)
+
     try:
-        cursor.execute(select_stmt,{'emp_id':int(emp_id)})
-        LoginTime= cursor.fetchall()
+        cursor.execute(select_stmt,{'emp_id':emp_id})
+        CheckinTime= cursor.fetchall()
        
-        for row in LoginTime:
+        for row in CheckinTime:
             formatted_login = row
             print(formatted_login[0])
         
 
-        CheckoutTime=datetime.now()
-        LogininDate = datetime.strptime(formatted_login[0],'%Y-%m-%d %H:%M:%S')
+        CheckinDate = datetime.strptime(formatted_login[0],'%Y-%m-%d %H:%M:%S')
         
-
-      
+        CheckoutTime=datetime.now()
         formatted_checkout = CheckoutTime.strftime('%Y-%m-%d %H:%M:%S')
-        Total_Working_Hours = CheckoutTime - LogininDate
+
+        Total_Working_Hours = CheckoutTime - CheckinDate
         print(Total_Working_Hours)
 
          
         try:
-            cursor.execute(insert_statement,(emp_id,formatted_login[0],formatted_checkout,Total_Working_Hours))
+            cursor.execute(update_stmt, { 'check_out': formatted_checkout ,'emp_id': emp_id})
             db_conn.commit()
-            print(" Data Inserted into MySQL")
-            
-            
+            print(" Data Updated into MySQL")
+
         except Exception as e:
-             return str(e)
+            return str(e)
                     
                     
     except Exception as e:
@@ -199,13 +202,35 @@ def checkOut():
     finally:
         cursor.close()
         
-    return render_template("AttendanceOutput.html",date=datetime.now(),Checkout = formatted_checkout,
-     LoginTime=formatted_login[0],TotalWorkingHours=Total_Working_Hours)
+    
+        
+    return render_template("AttendanceOutput.html",date=datetime.now(),CheckoutTime=formatted_checkout, TotalWorkingHours=Total_Working_Hours)
 
 
 #---------------------------------apply leave page---------------------------------
 @app.route("/leave/")
 def leave():
+    emp_id = request.form['emp_id']
+    start_date = request.form['start_date']
+    end_date = request.form['end_date']
+    reason = request.form['reason']
+
+    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s)"
+    
+    cursor = db_conn.cursor()
+
+    try:
+        cursor.execute(insert_sql,(emp_id,start_date,end_date,reason))
+        db_conn.commit()
+        print(" Data Inserted into MySQL")
+
+    except Exception as e:
+        return str(e)
+
+    finally:
+        cursor.close()
+
+
     return render_template('ApplyLeave.html')
 
 #apply leave function
