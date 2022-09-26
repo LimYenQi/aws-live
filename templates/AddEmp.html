@@ -2,14 +2,33 @@
 <html>
 <head>
 	<style type="text/css">
-		#header iframe {border: none;}
+		
     </style>
 	<title>Add Employee Information</title>
 </head>
 
 <div id="header">
-	<iframe src="header.html" name="header" marginwidth="0" marginheight="0" scrolling="no" width="100%" height="30%">
-	</iframe>
+	<table style="width:100%; height: 60pt;">
+        <tr>
+          <th id="homeButton" style="width:10%">
+            <a href="index.html"><img src="{{ url_for('images', filename='home.png')}}" alt="" width="25" height="25">
+          </th>
+          <th style="width:20%;"></th>
+          <th>
+            <a href="AddEmp.html">Add Employee</a>
+          </th>
+          <th>
+            <a href="GetEmp.html">Get Employee</a>
+          </th>
+          <th>
+            <a href="Attendance.html">Attendance</a>
+          </th>
+          <th>
+            <a href="applyLeave.html">Apply Leave</a>
+          </th>
+          <th style="width:30%;"></th>
+        </tr>
+      </table>
 </div>
 <center>
 	<font color="black" size="4" style="font-family: avenir">
@@ -19,8 +38,8 @@
 		<body bgcolor="lightgrey">
 
 			<form action="/addemp" autocomplete="on" method = "POST" enctype="multipart/form-data">
-<!--/getemp-->
-				<button type="submit" formaction="GetEmp.html" style="background: grey; height: 45px; width: 200px; color:white; font:oblique;">GET EMPLOYEE INFORMATION</button><br><br>
+
+				<button type="submit" formaction="/getemp" style="background: grey; height: 45px; width: 200px; color:white; font:oblique;">GET EMPLOYEE INFORMATION</button><br><br>
 
 		  		Employee ID:<br> <input style="height:25px;font-size:14pt; color:grey;" type="number" name="emp_id" autofocus size="40"><br><br>
 
