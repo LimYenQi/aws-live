@@ -37,132 +37,134 @@
 </head>
 
 <div id="header">
-	<table style="width:100%; height: 400pt;">
-        <tr>
-          <th id="homeButton" style="width:10%">
-            <a href="/"><img src="{{ url_for('static', filename='img/home.png')}}" alt="" width="25" height="25">
-          </th>
-          <th style="width:20%;"></th>
-          <th class="cursive">
-            <a href="/addemp/">Add Employee</a>
-          </th>
-          <th class="cursive">
-            <a href="/getemp/">Get Employee</a>
-          </th>
-          <th class="cursive">
-            <a href="/attendance/">Attendance</a>
-          </th>
-          <th class="cursive">
-            <a href="/leave/">Apply Leave</a>
-          </th>
-          <th class="cursive">
-            <a href="/portfolio/">Portfolio</a>
-          </th>
-          <th style="width:30%;"></th>
-        </tr>
-
-        <!------------------------ blank row ------------------------->
-        <tr style="height:50px;">
-          <th></th>
-          <th style="width:20%;"></th>
-          <th ></th>
-          <th ></th>
-          <th ></th>
-          <th ></th>
-          <th ></th>
-          <th style="width:30%;"></th>
-        </tr>
-        <!------------------------ blank row ------------------------->
-
-        <tr>
-          <th></th>
-          <th style="width:20%;"></th>
-          <th colspan="5" style="background-color:#b4e7ef" class="title">Employee</th>
-          <th style="width:30%;"></th>
-        </tr>
-
-        <tr>
-          <th></th>
-          <th style="width:20%;"></th>
-          <th style="background-color:#dfe6ea" class="cursive">Employee ID : </th>
-          <th colspan="4" style="background-color:#dfe6ea">
-            <form method="post" action="">
-                  <input type="text" name="emp_id" size="40" class="cursive">
-          </form>
-          </th>
-          <th style="width:30%;"></th>
-        </tr>
-        <tr>
-          <th></th>
-          <th style="width:20%;"></th>
-          <th style="background-color:#dfe6ea" class="cursive">First Name : </th>
-          <th colspan="4" style="background-color:#dfe6ea">
-            <form method="post" action="">
-                  <input type="text" name="first_name" size="40" class="cursive">
-          </form>
-          </th>
-          <th style="width:30%;"></th>
-        </tr>
-
-        <tr>
-          <th></th>
-          <th style="width:20%;"></th>
-          <th style="background-color:#dfe6ea" class="cursive">Last Name : </th>
-          <th colspan="4" style="background-color:#dfe6ea">
-            <form method="post" action="">
-                  <input type="text" name="last_name" size="40" class="cursive">
-          </form>
-          </th>
-          <th style="width:30%;"></th>
-        </tr>
-
-        <tr>
-          <th></th>
-          <th style="width:20%;"></th>
-          <th style="background-color:#dfe6ea" class="cursive">Primary Skills : </th>
-          <th colspan="4" style="background-color:#dfe6ea">
-            <form method="post" action="">
-                  <input type="text" name="pri_skill" size="40" class="cursive">
-          </form>
-          </th>
-          <th style="width:30%;"></th>
-        </tr>
-
-        <tr>
-          <th></th>
-          <th style="width:20%;"></th>
-          <th style="background-color:#dfe6ea" class="cursive">Location : </th>
-          <th colspan="4" style="background-color:#dfe6ea">
-            <form method="post" action="">
-                  <input type="text" name="location" size="40" class="cursive">
-          </form>
-          </th>
-          <th style="width:30%;"></th>
-        </tr>
-
-        <tr>
-          <th></th>
-          <th style="width:20%;"></th>
-          <th style="background-color:#dfe6ea" class="cursive">Image File : </th>
-          <th colspan="4" style="background-color:#dfe6ea">
-            <form method="post" action="">
-                  <input type="file" name="emp_image_file" size="40" class="cursive">
-          </form>
-          </th>
-          <th style="width:30%;"></th>
-        </tr>
-
-        <!------------------------------- Button -------------------------------->
-        <tr>
-          <th></th>
-          <th style="width:20%;"></th>
-          <th colspan="5" style="background-color:#dfe6ea">
-            <button class="button">Submit</button>
-          </th>
-          <th style="width:30%;"></th>
-        </tr>
-
-      </table>
+	<form action="/addemp/function" method = "POST">
+		<table style="width:100%; height: 400pt;">
+			<tr>
+			  <th id="homeButton" style="width:10%">
+				<a href="/"><img src="{{ url_for('static', filename='img/home.png')}}" alt="" width="25" height="25">
+			  </th>
+			  <th style="width:20%;"></th>
+			  <th class="cursive">
+				<a href="/addemp/">Add Employee</a>
+			  </th>
+			  <th class="cursive">
+				<a href="/getemp/">Get Employee</a>
+			  </th>
+			  <th class="cursive">
+				<a href="/attendance/">Attendance</a>
+			  </th>
+			  <th class="cursive">
+				<a href="/leave/">Apply Leave</a>
+			  </th>
+			  <th class="cursive">
+				<a href="/portfolio/">Portfolio</a>
+			  </th>
+			  <th style="width:30%;"></th>
+			</tr>
+	
+			<!------------------------ blank row ------------------------->
+			<tr style="height:50px;">
+			  <th></th>
+			  <th style="width:20%;"></th>
+			  <th ></th>
+			  <th ></th>
+			  <th ></th>
+			  <th ></th>
+			  <th ></th>
+			  <th style="width:30%;"></th>
+			</tr>
+			<!------------------------ blank row ------------------------->
+	
+			<tr>
+			  <th></th>
+			  <th style="width:20%;"></th>
+			  <th colspan="5" style="background-color:#b4e7ef" class="title">Employee</th>
+			  <th style="width:30%;"></th>
+			</tr>
+	
+			<tr>
+			  <th></th>
+			  <th style="width:20%;"></th>
+			  <th style="background-color:#dfe6ea" class="cursive">Employee ID : </th>
+			  <th colspan="4" style="background-color:#dfe6ea">
+				<!-- <form method="post" action=""> -->
+					  <input type="text" name="emp_id" size="40" class="cursive">
+			  <!-- </form> -->
+			  </th>
+			  <th style="width:30%;"></th>
+			</tr>
+			<tr>
+			  <th></th>
+			  <th style="width:20%;"></th>
+			  <th style="background-color:#dfe6ea" class="cursive">First Name : </th>
+			  <th colspan="4" style="background-color:#dfe6ea">
+				<!-- <form method="post" action=""> -->
+					  <input type="text" name="first_name" size="40" class="cursive">
+			  <!-- </form> -->
+			  </th>
+			  <th style="width:30%;"></th>
+			</tr>
+	
+			<tr>
+			  <th></th>
+			  <th style="width:20%;"></th>
+			  <th style="background-color:#dfe6ea" class="cursive">Last Name : </th>
+			  <th colspan="4" style="background-color:#dfe6ea">
+				<!-- <form method="post" action=""> -->
+					  <input type="text" name="last_name" size="40" class="cursive">
+			  <!-- </form> -->
+			  </th>
+			  <th style="width:30%;"></th>
+			</tr>
+	
+			<tr>
+			  <th></th>
+			  <th style="width:20%;"></th>
+			  <th style="background-color:#dfe6ea" class="cursive">Primary Skills : </th>
+			  <th colspan="4" style="background-color:#dfe6ea">
+				<!-- <form method="post" action=""> -->
+					  <input type="text" name="pri_skill" size="40" class="cursive">
+			  <!-- </form> -->
+			  </th>
+			  <th style="width:30%;"></th>
+			</tr>
+	
+			<tr>
+			  <th></th>
+			  <th style="width:20%;"></th>
+			  <th style="background-color:#dfe6ea" class="cursive">Location : </th>
+			  <th colspan="4" style="background-color:#dfe6ea">
+				<!-- <form method="post" action=""> -->
+					  <input type="text" name="location" size="40" class="cursive">
+			  <!-- </form> -->
+			  </th>
+			  <th style="width:30%;"></th>
+			</tr>
+	
+			<tr>
+			  <th></th>
+			  <th style="width:20%;"></th>
+			  <th style="background-color:#dfe6ea" class="cursive">Image File : </th>
+			  <th colspan="4" style="background-color:#dfe6ea">
+				<!-- <form method="post" action=""> -->
+					  <input type="file" name="emp_image_file" size="40" class="cursive">
+			  <!-- </form> -->
+			  </th>
+			  <th style="width:30%;"></th>
+			</tr>
+	
+			<!------------------------------- Button -------------------------------->
+			<tr>
+			  <th></th>
+			  <th style="width:20%;"></th>
+			  <th colspan="5" style="background-color:#dfe6ea">
+				<button class="button">Submit</button>
+			  </th>
+			  <th style="width:30%;"></th>
+			</tr>
+	
+		  </table>
+	</form>
 </div>
 <!-- <center>
 	<font color="black" size="4" style="font-family: avenir">
