@@ -6,8 +6,8 @@
     </style> -->
     <style>
       .button {
-        border: none;
-        color: white;
+        border: 1px solid black;
+        color: black;
         padding: 15px 32px;
         text-align: center;
         text-decoration: none;
@@ -17,7 +17,7 @@
         cursor: pointer;
         border-radius: 8px;
         font-family: cursive;
-        background-color: #3b47e4;
+        background-color: #9ee9f4;
       }
 
       .cursive {
@@ -34,7 +34,7 @@
         padding-top: 10px;
         padding-bottom: 10px;
       }
-    </style>
+    </style> 
 
 	<title>Employee Management System -- Apply Leave</title>
 </head>
@@ -80,17 +80,17 @@
         <tr>
           <th></th>
           <th style="width:20%;"></th>
-          <th colspan="5" style="background-color:#5762fa" class="title">Apply Leave </th>
+          <th colspan="5" style="background-color:#b4e7ef" class="title">Apply Leave </th>
           <th style="width:30%;"></th>
         </tr>
 
         <tr>
           <th></th>
           <th style="width:20%;"></th>
-          <th style="background-color:#84fad8" class="cursive">Employee ID : </th>
-          <th colspan="4" style="background-color:#84fad8">
+          <th style="background-color:#dfe6ea" class="cursive">Employee ID : </th>
+          <th colspan="4" style="background-color:#dfe6ea">
             <form method="post" action="">
-                  <input type="text" name="employee_id" size="40" class="cursive">
+                  <input type="text" name="emp_id" size="40" class="cursive">
           </form>
           </th>
           <th style="width:30%;"></th>
@@ -99,8 +99,8 @@
         <tr>
           <th></th>
           <th style="width:20%;"></th>
-          <th style="background-color:#84fad8" class="cursive">Start date : </th>
-          <th colspan="4" style="background-color:#84fad8">
+          <th style="background-color:#dfe6ea" class="cursive">Start date : </th>
+          <th colspan="4" style="background-color:#dfe6ea">
             <form method="post" action="">
                   <input type="text" name="start_date" size="40" class="cursive">
           </form>
@@ -111,8 +111,8 @@
         <tr>
           <th></th>
           <th style="width:20%;"></th>
-          <th style="background-color:#84fad8" class="cursive">End date : </th>
-          <th colspan="4" style="background-color:#84fad8">
+          <th style="background-color:#dfe6ea" class="cursive">End date : </th>
+          <th colspan="4" style="background-color:#dfe6ea">
             <form method="post" action="">
                   <input type="text" name="end_date" size="40" class="cursive">
           </form>
@@ -123,10 +123,10 @@
         <tr>
           <th></th>
           <th style="width:20%;"></th>
-          <th style="background-color:#84fad8" class="cursive">Reason : </th>
-          <th colspan="4" style="background-color:#84fad8">
+          <th style="background-color:#dfe6ea" class="cursive">Reason : </th>
+          <th colspan="4" style="background-color:#dfe6ea">
             <form method="post" action="">
-              <textarea class="cursive" rows="5" cols="43"></textarea>
+              <textarea class="cursive" rows="5" cols="43" name="reason"></textarea>
           </form>
           </th>
           <th style="width:30%;"></th>
@@ -136,7 +136,7 @@
         <tr>
           <th></th>
           <th style="width:20%;"></th>
-          <th colspan="5" style="background-color:#84fad8">
+          <th colspan="5" style="background-color:#dfe6ea">
             <button class="button">Apply</button>
           </th>
           <th style="width:30%;"></th>
