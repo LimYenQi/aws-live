@@ -21,14 +21,14 @@ db_conn = connections.Connection(
 output = {}
 table = 'employee'
 
-#home page
+#---------------------------------home page---------------------------------
 @app.route("/")
 def home():
     return render_template('index.html')
 
 
 
-#add employee page
+#---------------------------------add employee page---------------------------------
 @app.route("/addemp/", methods=['GET', 'POST'])
 def AddEmpPage():
     return render_template('AddEmp.html')
@@ -85,7 +85,7 @@ def AddEmp():
 
 
 
-#Get Employee 
+#---------------------------------Get Employee Page---------------------------------
 @app.route("/getemp/")
 def getEmp():
     return render_template('GetEmp.html',date=datetime.now())
@@ -119,18 +119,91 @@ def Employee():
 
 
 
-#attendance page
+
+#---------------------------------attendance page---------------------------------
 @app.route("/attendance/")
 def attendance():
     return render_template('Attendance.html')
 
 #check in button
+@app.route("/attendance/checkIn",methods=['GET','POST'])
+def checkIn():
+    emp_id = request.form['emp_id']
+
+    #UPDATE STATEMENT
+    update_stmt= "UPDATE employee SET check_in =(%(check_in)s) WHERE emp_id = %(emp_id)s"
+
+    cursor = db_conn.cursor()
+
+    LoginTime = datetime.now()
+    formatted_login = LoginTime.strftime('%Y-%m-%d %H:%M:%S')
+    print ("Check in time:{}",formatted_login)
+
+    try:
+        cursor.execute(update_stmt, { 'check_in': formatted_login ,'emp_id':int(emp_id)})
+        db_conn.commit()
+        print(" Data Updated into MySQL")
+
+    except Exception as e:
+        return str(e)
+
+    finally:
+        cursor.close()
+        
+    return render_template("AttendanceOutput.html",date=datetime.now(), LoginTime=formatted_login)
+
 
 #check out button
+@app.route("/attendance/output",methods=['GET','POST'])
+def checkOut():
+    emp_id = request.form['emp_id']
+    # SELECT STATEMENT TO GET DATA FROM MYSQL
+    select_stmt = "SELECT check_in FROM employee WHERE emp_id = %(emp_id)s"
+    insert_statement="INSERT INTO attendance VALUES (%s,%s,%s,%s)"
+    
+
+    cursor = db_conn.cursor()
+        
+    try:
+        cursor.execute(select_stmt,{'emp_id':int(emp_id)})
+        LoginTime= cursor.fetchall()
+       
+        for row in LoginTime:
+            formatted_login = row
+            print(formatted_login[0])
+        
+
+        CheckoutTime=datetime.now()
+        LogininDate = datetime.strptime(formatted_login[0],'%Y-%m-%d %H:%M:%S')
+        
+
+      
+        formatted_checkout = CheckoutTime.strftime('%Y-%m-%d %H:%M:%S')
+        Total_Working_Hours = CheckoutTime - LogininDate
+        print(Total_Working_Hours)
+
+         
+        try:
+            cursor.execute(insert_statement,(emp_id,formatted_login[0],formatted_checkout,Total_Working_Hours))
+            db_conn.commit()
+            print(" Data Inserted into MySQL")
+            
+            
+        except Exception as e:
+             return str(e)
+                    
+                    
+    except Exception as e:
+        return str(e)
+
+    finally:
+        cursor.close()
+        
+    return render_template("AttendanceOutput.html",date=datetime.now(),Checkout = formatted_checkout,
+     LoginTime=formatted_login[0],TotalWorkingHours=Total_Working_Hours)
 
 
-
-#apply leave page
+#---------------------------------apply leave page---------------------------------
 @app.route("/leave/")
 def leave():
     return render_template('ApplyLeave.html')
@@ -139,7 +212,7 @@ def leave():
 
 
 
-#portfolio page
+#---------------------------------portfolio page---------------------------------
 @app.route("/portfolio/")
 def portfolio():
     return render_template('Portfolio.html')
