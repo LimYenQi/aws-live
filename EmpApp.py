@@ -140,7 +140,7 @@ def checkIn():
     print ("Check in time:{}",formatted_checkin)
     
     try:
-        cursor.execute(insert_statement,(emp_id,formatted_checkin,"",""))
+        cursor.execute(insert_statement,(emp_id,formatted_checkin,""))
         db_conn.commit()
         print(" Data Inserted into MySQL")
 
@@ -165,42 +165,53 @@ def checkOut():
     
     cursor = db_conn.cursor()
 
-    # CheckoutTime = datetime.now()
-    # formatted_checkout = CheckoutTime.strftime('%Y-%m-%d %H:%M:%S')
-    # print ("Check out time:{}",formatted_checkout)
+    CheckoutTime = datetime.now()
+    formatted_checkout = CheckoutTime.strftime('%Y-%m-%d %H:%M:%S')
+    print ("Check out time:{}",formatted_checkout)
 
     try:
-        cursor.execute(select_stmt,{'emp_id':emp_id})
-        CheckinTime= cursor.fetchall()
-       
-        for row in CheckinTime:
-            formatted_login = row
-            print(formatted_login[0])
-        
+        cursor.execute(update_stmt, { 'check_out': formatted_checkout ,'emp_id': emp_id})
+        db_conn.commit()
+        print(" Data Updated into MySQL")
 
-        CheckinDate = datetime.strptime(formatted_login[0],'%Y-%m-%d %H:%M:%S')
-        
-        CheckoutTime=datetime.now()
-        formatted_checkout = CheckoutTime.strftime('%Y-%m-%d %H:%M:%S')
-
-        Total_Working_Hours = CheckoutTime - CheckinDate
-        print(Total_Working_Hours)
-
-         
-        try:
-            cursor.execute(update_stmt, { 'check_out': formatted_checkout ,'emp_id': emp_id})
-            db_conn.commit()
-            print(" Data Updated into MySQL")
-
-        except Exception as e:
-            return str(e)
-                    
-                    
     except Exception as e:
         return str(e)
-
+    
     finally:
         cursor.close()
+
+    # try:
+    #     cursor.execute(select_stmt,{'emp_id':emp_id})
+    #     CheckinTime= cursor.fetchall()
+       
+    #     for row in CheckinTime:
+    #         formatted_login = row
+    #         print(formatted_login[0])
+        
+
+    #     CheckinDate = datetime.strptime(formatted_login[0],'%Y-%m-%d %H:%M:%S')
+        
+    #     CheckoutTime=datetime.now()
+    #     formatted_checkout = CheckoutTime.strftime('%Y-%m-%d %H:%M:%S')
+
+    #     Total_Working_Hours = CheckoutTime - CheckinDate
+    #     print(Total_Working_Hours)
+
+         
+    #     try:
+    #         cursor.execute(update_stmt, { 'check_out': formatted_checkout ,'emp_id': emp_id})
+    #         db_conn.commit()
+    #         print(" Data Updated into MySQL")
+
+    #     except Exception as e:
+    #         return str(e)
+                    
+                    
+    # except Exception as e:
+    #     return str(e)
+
+    # finally:
+    #     cursor.close()
         
     
         
