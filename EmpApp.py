@@ -221,12 +221,12 @@ def leaveFunction():
     end_date = request.form['end_date']
     reason = request.form['reason']
 
+    #insert statement
     insert_sql = "INSERT INTO leave VALUES (%s, %s, %s, %s)"
-    
     cursor = db_conn.cursor()
 
     try:
-        cursor.execute(insert_sql,(emp_id,start_date,end_date,reason))
+        cursor.execute(insert_sql, (emp_id, start_date, end_date, reason))
         db_conn.commit()
         print(" Data Inserted into MySQL")
 
