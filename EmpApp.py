@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from datetime import datetime
 from pymysql import connections
 import os
 import boto3
@@ -21,17 +22,19 @@ output = {}
 table = 'employee'
 
 #home page
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/")
 def home():
+    return render_template('index.html')
+
+
+
+#add employee page
+@app.route("/addemp/", methods=['GET', 'POST'])
+def about():
     return render_template('AddEmp.html')
 
-
-@app.route("/about", methods=['POST'])
-def about():
-    return render_template('www.intellipaat.com')
-
-
-@app.route("/addemp", methods=['POST'])
+#add emp functioon
+@app.route("/addemp/function", methods=['GET', 'POST'])
 def AddEmp():
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
@@ -79,6 +82,62 @@ def AddEmp():
 
     print("all modification done...")
     return render_template('AddEmpOutput.html', name=emp_name)
+
+
+
+#Get Employee 
+@app.route("/getemp/")
+def getEmp():
+    return render_template('GetEmp.html',date=datetime.now())
+
+#Get Employee Results
+@app.route("/getemp/results",methods=['GET','POST'])
+def Employee():
+    
+     #Get Employee
+     emp_id = request.form['emp_id']
+    # SELECT STATEMENT TO GET DATA FROM MYSQL
+     select_stmt = "SELECT * FROM employee WHERE emp_id = %(emp_id)s"
+
+     
+     cursor = db_conn.cursor()
+        
+     try:
+         cursor.execute(select_stmt, { 'emp_id': int(emp_id) })
+         # #FETCH ONLY ONE ROWS OUTPUT
+         for result in cursor:
+            print(result)
+        
+
+     except Exception as e:
+        return str(e)
+        
+     finally:
+        cursor.close()
+
+     return render_template("GetEmpOutput.html",result=result,date=datetime.now())
+
+
+
+#attendance page
+@app.route("/attendance/")
+def attendance():
+    return render_template('Attendance.html')
+
+#check in button
+
+#check out button
+
+
+
+#apply leave page
+@app.route("/leave/")
+def leave():
+    return render_template('ApplyLeave.html')
+
+#apply leave function
+
+
 
 
 if __name__ == '__main__':
