@@ -141,7 +141,7 @@ def leave():
 
 #portfolio page
 @app.route("/portfolio/")
-def leave():
+def portfolio():
     return render_template('Portfolio.html')
 
 
