@@ -30,7 +30,7 @@ def home():
 
 #add employee page
 @app.route("/addemp/", methods=['GET', 'POST'])
-def about():
+def AddEmpPage():
     return render_template('AddEmp.html')
 
 #add emp functioon
