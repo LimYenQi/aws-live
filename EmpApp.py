@@ -221,7 +221,7 @@ def leaveFunction():
     end_date = request.form['end_date']
     reason = request.form['reason']
 
-    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s)"
+    insert_sql = "INSERT INTO leave VALUES (%s, %s, %s, %s)"
     
     cursor = db_conn.cursor()
 
