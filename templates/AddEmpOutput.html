@@ -2,46 +2,109 @@
 <html>
 <head>
 	<style type="text/css">
-		#header iframe {border: none;}
+		.button {
+        border: 1px solid black;
+        color: black;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 8px;
+        font-family: cursive;
+        background-color: #9ee9f4;
+      }
+
+      .cursive {
+        font-family: cursive;
+        font-size: 15px;
+        padding: 5px;
+      }
+
+      .success {
+        font-family: cursive;
+        font-size: 20px;
+        padding: 5px;
+        color: rgb(9, 15, 128);
+      }
     </style>
-<center>
-	<font color="DodgerBlue" size="5" style="font-family: avenir">
-		<body bgcolor="lightgrey">
-			<h1>SAVE SUCCESSFUL</h1><br>
-			<h2>Following Employee has been added to the database</h2><br>
-			<h2>{{ name }}</h2><br>
-			<title>Add Emp Output</title>
-				<form action="http://3.134.115.108:80/" autocomplete="on" method = "GET">
-
-					<button type="submit" style="background: grey; height: 45px; width: 200px; color:white; font:oblique;">GO BACK</button><br><br>
-
-				</form>
-		</body>
-	</font>
-</center>
 </head>
 
 <div id="header">
-	<table style="width:100%; height: 60pt;">
+	<table style="width:100%; height: 350pt;">
         <tr>
           <th id="homeButton" style="width:10%">
             <a href="/"><img src="{{ url_for('static', filename='img/home.png')}}" alt="" width="25" height="25">
           </th>
           <th style="width:20%;"></th>
-          <th>
+          <th class="cursive">
             <a href="/addemp/">Add Employee</a>
           </th>
-          <th>
+          <th class="cursive">
             <a href="/getemp/">Get Employee</a>
           </th>
-          <th>
+          <th class="cursive">
             <a href="/attendance/">Attendance</a>
           </th>
-          <th>
+          <th class="cursive">
             <a href="/leave/">Apply Leave</a>
           </th>
-          <th>
+          <th class="cursive">
             <a href="/portfolio/">Portfolio</a>
+          </th>
+          <th style="width:30%;"></th>
+        </tr>
+
+        <!------------------------ blank row ------------------------->
+        <tr style="height:50px;">
+          <th></th>
+          <th style="width:20%;"></th>
+          <th ></th>
+          <th ></th>
+          <th ></th>
+          <th ></th>
+          <th ></th>
+          <th style="width:30%;"></th>
+        </tr>
+        <!------------------------ blank row ------------------------->
+
+        <tr>
+          <th></th>
+          <th style="width:20%;"></th>
+          <th colspan="5" style="background-color:#dfe6ea" class="success">
+            <p>Save Successfully !!!</p>
+          </th>
+          <th style="width:30%;"></th>
+        </tr>
+
+        <tr>
+          <th></th>
+          <th style="width:20%;"></th>
+          <th colspan="5" style="background-color:#dfe6ea" class="success">
+            <p>Following employee has been added to the database</p>
+          </th>
+          <th style="width:30%;"></th>
+        </tr>
+
+        <tr>
+          <th></th>
+          <th style="width:20%;"></th>
+          <th colspan="5" style="background-color:#dfe6ea">
+            <form method="post" action="">
+              <p class="cursive">{{name}}</p>
+          </form>
+          </th>
+          <th style="width:30%;"></th>
+        </tr>
+
+        <!------------------------------- Button -------------------------------->
+        <tr>
+          <th></th>
+          <th style="width:20%;"></th>
+          <th colspan="5" style="background-color:#dfe6ea">
+            <button class="button" type="submit">Back</button>
           </th>
           <th style="width:30%;"></th>
         </tr>

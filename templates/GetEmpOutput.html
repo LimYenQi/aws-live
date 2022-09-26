@@ -2,70 +2,153 @@
 <html>
 <head>
 	<style type="text/css">
-		
+		.button {
+        border: 1px solid black;
+        color: black;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 8px;
+        font-family: cursive;
+        background-color: #9ee9f4;
+      }
+
+      .cursive {
+        font-family: cursive;
+        font-size: 15px;
+        padding: 5px;
+      }
+
+      .title {
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        text-align: center;
+        font-size: 20px;
+        padding-left: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
     </style>
 	<title>Employee Information</title>
 </head>
 
 <div id="header">
-	<table style="width:100%; height: 60pt;">
+	<table style="width:100%; height: 400pt;">
         <tr>
           <th id="homeButton" style="width:10%">
             <a href="/"><img src="{{ url_for('static', filename='img/home.png')}}" alt="" width="25" height="25">
           </th>
           <th style="width:20%;"></th>
-          <th>
+          <th class="cursive">
             <a href="/addemp/">Add Employee</a>
           </th>
-          <th>
+          <th class="cursive">
             <a href="/getemp/">Get Employee</a>
           </th>
-          <th>
+          <th class="cursive">
             <a href="/attendance/">Attendance</a>
           </th>
-          <th>
+          <th class="cursive">
             <a href="/leave/">Apply Leave</a>
           </th>
-          <th>
+          <th class="cursive"> 
             <a href="/portfolio/">Portfolio</a>
+          </th>
+          <th style="width:30%;"></th>
+        </tr>
+
+        <!------------------------ blank row ------------------------->
+        <tr style="height:50px;">
+          <th></th>
+          <th style="width:20%;"></th>
+          <th ></th>
+          <th ></th>
+          <th ></th>
+          <th ></th>
+          <th ></th>
+          <th style="width:30%;"></th>
+        </tr>
+        <!------------------------ blank row ------------------------->
+
+        <tr>
+          <th></th>
+          <th style="width:20%;"></th>
+          <th colspan="5" style="background-color:#b4e7ef" class="title">Employee Information </th>
+          <th style="width:30%;"></th>
+        </tr>
+
+        <tr>
+          <th></th>
+          <th style="width:20%;"></th>
+          <th style="background-color:#dfe6ea" class="cursive">Employee ID : </th>
+          <th colspan="4" style="background-color:#dfe6ea">
+            <p class="cursive">{{employeeID}}</p>
+          </th>
+          <th style="width:30%;"></th>
+        </tr>
+        <tr>
+          <th></th>
+          <th style="width:20%;"></th>
+          <th style="background-color:#dfe6ea" class="cursive">First Name : </th>
+          <th colspan="4" style="background-color:#dfe6ea">
+            <p class="cursive">{{firstName}}</p>
+          </th>
+          <th style="width:30%;"></th>
+        </tr>
+
+        <tr>
+          <th></th>
+          <th style="width:20%;"></th>
+          <th style="background-color:#dfe6ea" class="cursive">Last Name : </th>
+          <th colspan="4" style="background-color:#dfe6ea">
+            <p class="cursive">{{lastName}}</p>
+          </th>
+          <th style="width:30%;"></th>
+        </tr>
+
+        <tr>
+          <th></th>
+          <th style="width:20%;"></th>
+          <th style="background-color:#dfe6ea" class="cursive">Primary Skills : </th>
+          <th colspan="4" style="background-color:#dfe6ea">
+            <p class="cursive">{{primarySkills}}</p>
+          </th>
+          <th style="width:30%;"></th>
+        </tr>
+
+        <tr>
+          <th></th>
+          <th style="width:20%;"></th>
+          <th style="background-color:#dfe6ea" class="cursive">Location : </th>
+          <th colspan="4" style="background-color:#dfe6ea">
+            <p class="cursive">{{location}}</p>
+          </th>
+          <th style="width:30%;"></th>
+        </tr>
+
+        <tr>
+          <th></th>
+          <th style="width:20%;"></th>
+          <th style="background-color:#dfe6ea" class="cursive">Image File : </th>
+          <th colspan="4" style="background-color:#dfe6ea">
+            <p class="cursive">{{imageUrl}}</p>
+          </th>
+          <th style="width:30%;"></th>
+        </tr>
+
+        <!------------------------------- Button -------------------------------->
+        <tr>
+          <th></th>
+          <th style="width:20%;"></th>
+          <th colspan="5" style="background-color:#dfe6ea">
+            <button class="button">Close</button>
           </th>
           <th style="width:30%;"></th>
         </tr>
       </table>
 </div>
-
-<center>
-	<font color="black" size="5" style="font-family: avenir">
-
-		<h1 style="color: DodgerBlue">Employee Information</h1>
-
-		<body bgcolor="lightgrey">
-
-			<form>
-
-				<div>
-
-			  		Employee ID:<br> {{ id }} <br><br>
-
-			  		First Name:<br> {{ fname }} <br><br>
-
-			  		Last Name:<br> {{ lname }} <br><br>
-
-			  		Primary Interest:<br> {{ interest }} <br><br>
-
-			  		Location:<br> {{ location }} <br><br>
-
-			  		Image URL: <br> {{ image_url }} <br><br>
-
-			  		<button type="submit" style="background: grey; height: 45px; width: 200px; color:white; font:oblique;" formaction="http://3.134.115.108:80/getemp">RESET</button><br><br>
-
-			  	</div>
-
-			</form>
-
-		</body>
-
-	</font>
-</center>
 
 </html>
