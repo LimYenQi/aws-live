@@ -120,7 +120,7 @@ def Employee():
 
 
 #attendance page
-@app.route("/leave/")
+@app.route("/attendance/")
 def attendance():
     return render_template('Attendance.html')
 
