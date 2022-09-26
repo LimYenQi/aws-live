@@ -154,7 +154,7 @@ def checkIn():
 
 
 #check out button
-@app.route("/attendance/output",methods=['GET','POST'])
+@app.route("/attendance/checkOut",methods=['GET','POST'])
 def checkOut():
     emp_id = request.form['emp_id']
 
