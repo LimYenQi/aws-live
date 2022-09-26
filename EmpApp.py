@@ -208,7 +208,7 @@ def checkOut():
 
 
 #---------------------------------apply leave page---------------------------------
-@app.route("/leave/")
+@app.route("/leave/",methods=['GET','POST'])
 def leave():
     emp_id = request.form['emp_id']
     start_date = request.form['start_date']
