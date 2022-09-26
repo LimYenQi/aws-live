@@ -140,7 +140,7 @@ def checkIn():
     print ("Check in time:{}",formatted_checkin)
     
     try:
-        cursor.execute(insert_statement,(emp_id,formatted_checkin,""))
+        cursor.execute(insert_statement,(emp_id,formatted_checkin,"",""))
         db_conn.commit()
         print(" Data Inserted into MySQL")
 
@@ -222,7 +222,7 @@ def leaveFunction():
     reason = request.form['reason']
 
     #insert statement
-    insert_sql = "INSERT INTO leave VALUES (%s, %s, %s, %s)"
+    insert_sql = "INSERT INTO leave_applied VALUES (%s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
     try:
