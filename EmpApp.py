@@ -210,6 +210,12 @@ def checkOut():
 #---------------------------------apply leave page---------------------------------
 @app.route("/leave/",methods=['GET','POST'])
 def leave():
+    return render_template('ApplyLeave.html')
+
+
+#apply leave function
+@app.route("/leave/function",methods=['GET','POST'])
+def leaveFunction():
     emp_id = request.form['emp_id']
     start_date = request.form['start_date']
     end_date = request.form['end_date']
@@ -232,9 +238,6 @@ def leave():
 
 
     return render_template('ApplyLeave.html')
-
-#apply leave function
-
 
 
 #---------------------------------portfolio page---------------------------------
