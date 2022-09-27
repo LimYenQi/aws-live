@@ -249,7 +249,7 @@ def leaveFunction():
         cursor.close()
 
 
-    return render_template('ApplyLeave.html')
+    return render_template('ApplyLeaveOutput.html', empID=emp_id, startDate=start_date, endDate=end_date, reason=reason)
 
 
 #---------------------------------portfolio page---------------------------------
