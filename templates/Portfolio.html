@@ -26,8 +26,8 @@
         font-family:'Courier New', Courier, monospace;
         font-size: 30pt;
         text-align: right;
-        padding-top: 5%;
-        padding-right: 25%;
+        padding-top: 3%;
+        padding-right: 23%;
       }
       .content2{
         font-family: Bradley Hand ITC;
@@ -36,11 +36,16 @@
         text-align: right;
         padding-right: 15%;
       }
+      .cursive {
+        font-family: cursive;
+        font-size: 15px;
+        padding: 5px;
+      }
     </style>
 
 	<title>Employee Management System -- Attendance</title>
 </head>
-<body style="background-image: url('emp_background.jpg');">
+<body background="{{ url_for('static', filename='img/background.jpg')}}">
   <div id="header">
     <table style="width:100%; height: 60pt;">
           <tr>
@@ -48,19 +53,19 @@
               <a href="/"><img src="{{ url_for('static', filename='img/home.png')}}" alt="" width="25" height="25">
             </th>
             <th style="width:20%;"></th>
-            <th>
+            <th class="cursive">
               <a href="/addemp/">Add Employee</a>
             </th>
-            <th>
+            <th class="cursive">
               <a href="/getemp/">Get Employee</a>
             </th>
-            <th>
+            <th class="cursive">
               <a href="/attendance/">Attendance</a>
             </th>
-            <th>
+            <th class="cursive">
               <a href="/leave/">Apply Leave</a>
             </th>
-            <th>
+            <th class="cursive">
               <a href="/portfolio/">Portfolio</a>
             </th>
             <th style="width:30%;"></th>
@@ -74,7 +79,7 @@
   </div>
   <div id="content">
     <p class="content">
-      Employee Management System here giving the best, most convenience service and prototype for our users. 
+      OK Employee Management System here giving the best, most convenience service and prototype for our users. 
     </p>
   </div>
   <div id="content1">
@@ -87,40 +92,6 @@
       Lim Yen Qi&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspYap Shin Han
     </p>
   </div>
-    <!-- <table style="width:100%; height: 60pt;">
-      <tr>
-        <th>
-          <p class="content">
-            Add Employee
-          </p>
-        </th>
-        <th>
-          <p class="content">
-            Get Employee Details
-          </p>
-        </th>
-      </tr>
-      <tr>
-        <th>
-          <p class="content">
-            Apply Leave
-          </p>
-        </th>
-        <th>
-          <p class="content">
-            Attendance
-          </p>
-        </th>
-      </tr>
-    </table> -->
-
-    <!-- <p class="content">
-      Provides functions as following : <br>
-      - Add Employee <br>
-      - Get Employee Details <br>
-      - Apply Leave <br>
-      - Attendance <br>
-    </p> -->
   </div>
 </body>
 
