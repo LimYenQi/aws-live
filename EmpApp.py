@@ -181,8 +181,7 @@ def checkOut():
 
         Total_Working_Hours = CheckoutTime - CheckinDate
         print(Total_Working_Hours)
-
-         
+        
         try:
             cursor.execute(update_stmt, { 'check_out': formatted_checkout ,'emp_id': emp_id})
             db_conn.commit()
@@ -190,15 +189,12 @@ def checkOut():
 
         except Exception as e:
             return str(e)
-                    
-                    
+            
     except Exception as e:
         return str(e)
 
     finally:
         cursor.close()
-        
-    
         
     return render_template("AttendanceOutput.html",date=datetime.now(), CheckinTime=formatted_login[0],
     CheckoutTime=formatted_checkout, TotalWorkingHours=Total_Working_Hours)
