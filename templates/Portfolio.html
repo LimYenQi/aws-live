@@ -1,39 +1,127 @@
 <html>
 <head>
 	<style type="text/css">
-		
+		/* .body {
+        background-image: url('emp_background.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;  
+        background-size: cover;
+      } */
+      .aboutUs{
+        font-family:'Courier New', Courier, monospace;
+        font-size: 50pt;
+        text-align: right;
+        padding-right: 300px;
+      }
+
+      .content{
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 20pt;
+        text-align: center;
+        padding-left: 50%;
+        padding-right: 10%;
+      }
+
+      .content1{
+        font-family:'Courier New', Courier, monospace;
+        font-size: 30pt;
+        text-align: right;
+        padding-top: 5%;
+        padding-right: 25%;
+      }
+      .content2{
+        font-family: Bradley Hand ITC;
+        font-weight: bolder;
+        font-size: 20pt;
+        text-align: right;
+        padding-right: 15%;
+      }
     </style>
+
 	<title>Employee Management System -- Attendance</title>
 </head>
+<body style="background-image: url('emp_background.jpg');">
+  <div id="header">
+    <table style="width:100%; height: 60pt;">
+          <tr>
+            <th id="homeButton" style="width:10%">
+              <a href="/"><img src="{{ url_for('static', filename='img/home.png')}}" alt="" width="25" height="25">
+            </th>
+            <th style="width:20%;"></th>
+            <th>
+              <a href="/addemp/">Add Employee</a>
+            </th>
+            <th>
+              <a href="/getemp/">Get Employee</a>
+            </th>
+            <th>
+              <a href="/attendance/">Attendance</a>
+            </th>
+            <th>
+              <a href="/leave/">Apply Leave</a>
+            </th>
+            <th>
+              <a href="/portfolio/">Portfolio</a>
+            </th>
+            <th style="width:30%;"></th>
+          </tr>
+        </table>
+  </div>
+  <div id="aboutUs">
+    <p class="aboutUs">
+      About Us
+    </p>
+  </div>
+  <div id="content">
+    <p class="content">
+      Employee Management System here giving the best, most convenience service and prototype for our users. 
+    </p>
+  </div>
+  <div id="content1">
+    <p class="content1">
+      Our Team 
+    </p>
+  </div>
+  <div id="content2">
+    <p class="content2">
+      Lim Yen Qi&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspYap Shin Han
+    </p>
+  </div>
+    <!-- <table style="width:100%; height: 60pt;">
+      <tr>
+        <th>
+          <p class="content">
+            Add Employee
+          </p>
+        </th>
+        <th>
+          <p class="content">
+            Get Employee Details
+          </p>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          <p class="content">
+            Apply Leave
+          </p>
+        </th>
+        <th>
+          <p class="content">
+            Attendance
+          </p>
+        </th>
+      </tr>
+    </table> -->
 
-<div id="header">
-	<table style="width:100%; height: 60pt;">
-        <tr>
-          <th id="homeButton" style="width:10%">
-            <a href="/"><img src="{{ url_for('static', filename='img/home.png')}}" alt="" width="25" height="25">
-          </th>
-          <th style="width:20%;"></th>
-          <th>
-            <a href="/addemp/">Add Employee</a>
-          </th>
-          <th>
-            <a href="/getemp/">Get Employee</a>
-          </th>
-          <th>
-            <a href="/attendance/">Attendance</a>
-          </th>
-          <th>
-            <a href="/leave/">Apply Leave</a>
-          </th>
-          <th>
-            <a href="/portfolio/">Portfolio</a>
-          </th>
-          <th style="width:30%;"></th>
-        </tr>
-      </table>
-</div>
-<div id="attendanceContent">
-	Attendance
-</div>
+    <!-- <p class="content">
+      Provides functions as following : <br>
+      - Add Employee <br>
+      - Get Employee Details <br>
+      - Apply Leave <br>
+      - Attendance <br>
+    </p> -->
+  </div>
+</body>
 
 </html>
