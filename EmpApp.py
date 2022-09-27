@@ -185,11 +185,11 @@ def checkOut():
         CheckinTime= cursor.fetchall()
        
         for row in CheckinTime:
-            formatted_login = row
-            print(formatted_login['check_in'])
+            formatted_login = row['check_in']
+            print(formatted_login)
         
 
-        CheckinDate = datetime.strptime(formatted_login['check_in'],'%Y-%m-%d %H:%M:%S')
+        CheckinDate = datetime.strptime(formatted_login,'%Y-%m-%d %H:%M:%S')
         
         CheckoutTime=datetime.now()
         formatted_checkout = CheckoutTime.strftime('%Y-%m-%d %H:%M:%S')
@@ -215,7 +215,7 @@ def checkOut():
         
     
         
-    return render_template("AttendanceOutput.html",date=datetime.now(), CheckinTime=formatted_login['check_in'],
+    return render_template("AttendanceOutput.html",date=datetime.now(), CheckinTime=formatted_login,
     CheckoutTime=formatted_checkout, TotalWorkingHours=Total_Working_Hours)
 
 
