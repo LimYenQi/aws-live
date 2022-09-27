@@ -165,21 +165,6 @@ def checkOut():
     
     cursor = db_conn.cursor()
 
-    # CheckoutTime = datetime.now()
-    # formatted_checkout = CheckoutTime.strftime('%Y-%m-%d %H:%M:%S')
-    # print ("Check out time:{}",formatted_checkout)
-
-    # try:
-    #     cursor.execute(update_stmt, { 'check_out': formatted_checkout ,'emp_id': emp_id})
-    #     db_conn.commit()
-    #     print(" Data Updated into MySQL")
-
-    # except Exception as e:
-    #     return str(e)
-    
-    # finally:
-    #     cursor.close()
-
     try:
         cursor.execute(select_stmt,{'emp_id':emp_id})
         CheckinTime= cursor.fetchall()
@@ -262,3 +247,35 @@ def portfolio():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#--------------check out button - line 167---------------
+    # CheckoutTime = datetime.now()
+    # formatted_checkout = CheckoutTime.strftime('%Y-%m-%d %H:%M:%S')
+    # print ("Check out time:{}",formatted_checkout)
+
+    # try:
+    #     cursor.execute(update_stmt, { 'check_out': formatted_checkout ,'emp_id': emp_id})
+    #     db_conn.commit()
+    #     print(" Data Updated into MySQL")
+
+    # except Exception as e:
+    #     return str(e)
+    
+    # finally:
+    #     cursor.close()
