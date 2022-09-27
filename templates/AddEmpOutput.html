@@ -29,90 +29,92 @@
         padding: 5px;
         color: rgb(9, 15, 128);
       }
+      .background{
+        background-repeat: no-repeat;
+      }
     </style>
 </head>
 
-<div id="header">
-	<table style="width:100%; height: 350pt;">
-        <tr>
-          <th id="homeButton" style="width:10%">
-            <a href="/"><img src="{{ url_for('static', filename='img/home.png')}}" alt="" width="25" height="25">
-          </th>
-          <th style="width:20%;"></th>
-          <th class="cursive">
-            <a href="/addemp/">Add Employee</a>
-          </th>
-          <th class="cursive">
-            <a href="/getemp/">Get Employee</a>
-          </th>
-          <th class="cursive">
-            <a href="/attendance/">Attendance</a>
-          </th>
-          <th class="cursive">
-            <a href="/leave/">Apply Leave</a>
-          </th>
-          <th class="cursive">
-            <a href="/portfolio/">Portfolio</a>
-          </th>
-          <th style="width:30%;"></th>
-        </tr>
-
-        <!------------------------ blank row ------------------------->
-        <tr style="height:50px;">
-          <th></th>
-          <th style="width:20%;"></th>
-          <th ></th>
-          <th ></th>
-          <th ></th>
-          <th ></th>
-          <th ></th>
-          <th style="width:30%;"></th>
-        </tr>
-        <!------------------------ blank row ------------------------->
-
-        <tr>
-          <th></th>
-          <th style="width:20%;"></th>
-          <th colspan="5" style="background-color:#dfe6ea" class="success">
-            <p>Save Successfully !!!</p>
-          </th>
-          <th style="width:30%;"></th>
-        </tr>
-
-        <tr>
-          <th></th>
-          <th style="width:20%;"></th>
-          <th colspan="5" style="background-color:#dfe6ea" class="success">
-            <p>Following employee has been added to the database</p>
-          </th>
-          <th style="width:30%;"></th>
-        </tr>
-
-        <tr>
-          <th></th>
-          <th style="width:20%;"></th>
-          <th colspan="5" style="background-color:#dfe6ea">
-            <form method="post" action="">
-              <p class="cursive">{{name}}</p>
-          </form>
-          </th>
-          <th style="width:30%;"></th>
-        </tr>
-
-        <!------------------------------- Button -------------------------------->
-        <tr>
-          <th></th>
-          <th style="width:20%;"></th>
-          <th colspan="5" style="background-color:#dfe6ea">
-            <a href="/addemp/">
-              <button class="button" type="submit" formaction="/addemp/">Back</button>
-            </a>
-          </th>
-          <th style="width:30%;"></th>
-        </tr>
-      </table>
-</div>
-<body>
-
+<body background="{{ url_for('static', filename='img/background.jpg')}}" class="background">
+  <div id="header">
+    <table style="width:100%; height: 350pt;">
+          <tr>
+            <th id="homeButton" style="width:10%">
+              <a href="/"><img src="{{ url_for('static', filename='img/home.png')}}" alt="" width="25" height="25">
+            </th>
+            <th style="width:20%;"></th>
+            <th class="cursive">
+              <a href="/addemp/">Add Employee</a>
+            </th>
+            <th class="cursive">
+              <a href="/getemp/">Get Employee</a>
+            </th>
+            <th class="cursive">
+              <a href="/attendance/">Attendance</a>
+            </th>
+            <th class="cursive">
+              <a href="/leave/">Apply Leave</a>
+            </th>
+            <th class="cursive">
+              <a href="/portfolio/">Portfolio</a>
+            </th>
+            <th style="width:30%;"></th>
+          </tr>
+  
+          <!------------------------ blank row ------------------------->
+          <tr style="height:50px;">
+            <th></th>
+            <th style="width:20%;"></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+            <th style="width:30%;"></th>
+          </tr>
+          <!------------------------ blank row ------------------------->
+  
+          <tr>
+            <th></th>
+            <th style="width:20%;"></th>
+            <th colspan="5" style="background-color:#dfe6ea" class="success">
+              <p>Save Successfully !!!</p>
+            </th>
+            <th style="width:30%;"></th>
+          </tr>
+  
+          <tr>
+            <th></th>
+            <th style="width:20%;"></th>
+            <th colspan="5" style="background-color:#dfe6ea" class="success">
+              <p>Following employee has been added to the database</p>
+            </th>
+            <th style="width:30%;"></th>
+          </tr>
+  
+          <tr>
+            <th></th>
+            <th style="width:20%;"></th>
+            <th colspan="5" style="background-color:#dfe6ea">
+              <form method="post" action="">
+                <p class="cursive">{{name}}</p>
+            </form>
+            </th>
+            <th style="width:30%;"></th>
+          </tr>
+  
+          <!------------------------------- Button -------------------------------->
+          <tr>
+            <th></th>
+            <th style="width:20%;"></th>
+            <th colspan="5" style="background-color:#dfe6ea">
+              <a href="/addemp/">
+                <button class="button" type="submit" formaction="/addemp/">Back</button>
+              </a>
+            </th>
+            <th style="width:30%;"></th>
+          </tr>
+        </table>
+  </div>
 </body>
 </html>

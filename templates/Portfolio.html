@@ -41,11 +41,14 @@
         font-size: 15px;
         padding: 5px;
       }
+      .background{
+        background-repeat: no-repeat;
+      }
     </style>
 
 	<title>Employee Management System -- Attendance</title>
 </head>
-<body background="{{ url_for('static', filename='img/emp_background.jpeg')}}">
+<body background="{{ url_for('static', filename='img/emp_background.jpeg')}}" class="background">
   <div id="header">
     <table style="width:100%; height: 60pt;">
           <tr>

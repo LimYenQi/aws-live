@@ -34,125 +34,131 @@
         padding-top: 10px;
         padding-bottom: 10px;
       }
+      
+      .background{
+        background-repeat: no-repeat;
+      }
     </style> 
 
 	<title>Employee Management System -- Apply Leave</title>
 </head>
 
-<div id="header">
-	<table style="width:100%; height: 400pt;">
-        <tr>
-          <th id="homeButton" style="width:10%">
-            <a href="/"><img src="{{ url_for('static', filename='img/home.png')}}" alt="" width="25" height="25">
-          </th>
-          <th style="width:20%;"></th>
-          <th class="cursive">
-            <a href="/addemp/">Add Employee</a>
-          </th>
-          <th class="cursive">
-            <a href="/getemp/">Get Employee</a>
-          </th>
-          <th class="cursive">
-            <a href="/attendance/">Attendance</a>
-          </th>
-          <th class="cursive">
-            <a href="/leave/">Apply Leave</a>
-          </th>
-          <th class="cursive">
-            <a href="/portfolio/">Portfolio</a>
-          </th>
-          <th style="width:30%;"></th>
-        </tr>
-
-        <!------------------------ blank row ------------------------->
-        <tr style="height:50px;">
-          <th></th>
-          <th style="width:20%;"></th>
-          <th ></th>
-          <th ></th>
-          <th ></th>
-          <th ></th>
-          <th ></th>
-          <th style="width:30%;"></th>
-        </tr>
-        <!------------------------ blank row ------------------------->
-
-        <tr>
-            <th></th>
+<body background="{{ url_for('static', filename='img/background.jpg')}}" class="background">
+  <div id="header">
+    <table style="width:100%; height: 400pt;">
+          <tr>
+            <th id="homeButton" style="width:10%">
+              <a href="/"><img src="{{ url_for('static', filename='img/home.png')}}" alt="" width="25" height="25">
+            </th>
             <th style="width:20%;"></th>
-            <th colspan="5" class="title">Leave Applied Successfully </th>
+            <th class="cursive">
+              <a href="/addemp/">Add Employee</a>
+            </th>
+            <th class="cursive">
+              <a href="/getemp/">Get Employee</a>
+            </th>
+            <th class="cursive">
+              <a href="/attendance/">Attendance</a>
+            </th>
+            <th class="cursive">
+              <a href="/leave/">Apply Leave</a>
+            </th>
+            <th class="cursive">
+              <a href="/portfolio/">Portfolio</a>
+            </th>
             <th style="width:30%;"></th>
           </tr>
-
-        <tr>
-          <th></th>
-          <th style="width:20%;"></th>
-          <th colspan="5" style="background-color:#b4e7ef" class="title">Leave Applied</th>
-          <th style="width:30%;"></th>
-        </tr>
-
-        <tr>
-          <th></th>
-          <th style="width:20%;"></th>
-          <th style="background-color:#dfe6ea" class="cursive">Employee ID : </th>
-          <th colspan="4" style="background-color:#dfe6ea">
-            <!-- <form method="post" action=""> -->
-                <p class="cursive">{{empID}}</p>
-          <!-- </form> -->
-          </th>
-          <th style="width:30%;"></th>
-        </tr>
-
-        <tr>
-          <th></th>
-          <th style="width:20%;"></th>
-          <th style="background-color:#dfe6ea" class="cursive">Start date : </th>
-          <th colspan="4" style="background-color:#dfe6ea">
-            <!-- <form method="post" action=""> -->
-                <p class="cursive">{{startDate}}</p>
-          <!-- </form> -->
-          </th>
-          <th style="width:30%;"></th>
-        </tr>
-
-        <tr>
-          <th></th>
-          <th style="width:20%;"></th>
-          <th style="background-color:#dfe6ea" class="cursive">End date : </th>
-          <th colspan="4" style="background-color:#dfe6ea">
-            <!-- <form method="post" action=""> -->
-                <p class="cursive">{{endDate}}</p>
-          <!-- </form> -->
-          </th>
-          <th style="width:30%;"></th>
-        </tr>
-
-        <tr>
-          <th></th>
-          <th style="width:20%;"></th>
-          <th style="background-color:#dfe6ea" class="cursive">Reason : </th>
-          <th colspan="4" style="background-color:#dfe6ea">
-            <!-- <form method="post" action=""> -->
-                <p class="cursive">{{reason}}</p>
-          <!-- </form> -->
-          </th>
-          <th style="width:30%;"></th>
-        </tr>
-
-        <!------------------------------- Button -------------------------------->
-        <tr>
-          <th></th>
-          <th style="width:20%;"></th>
-          <th colspan="5" style="background-color:#dfe6ea">
-            <a href="/leave/">
-                <button class="button" type="submit">Back</button>
-            </a>
-          </th>
-          <th style="width:30%;"></th>
-        </tr>
-      </table>
-</div>
-
+  
+          <!------------------------ blank row ------------------------->
+          <tr style="height:50px;">
+            <th></th>
+            <th style="width:20%;"></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+            <th style="width:30%;"></th>
+          </tr>
+          <!------------------------ blank row ------------------------->
+  
+          <tr>
+              <th></th>
+              <th style="width:20%;"></th>
+              <th colspan="5" class="title">Leave Applied Successfully </th>
+              <th style="width:30%;"></th>
+            </tr>
+  
+          <tr>
+            <th></th>
+            <th style="width:20%;"></th>
+            <th colspan="5" style="background-color:#b4e7ef" class="title">Leave Applied</th>
+            <th style="width:30%;"></th>
+          </tr>
+  
+          <tr>
+            <th></th>
+            <th style="width:20%;"></th>
+            <th style="background-color:#dfe6ea" class="cursive">Employee ID : </th>
+            <th colspan="4" style="background-color:#dfe6ea">
+              <!-- <form method="post" action=""> -->
+                  <p class="cursive">{{empID}}</p>
+            <!-- </form> -->
+            </th>
+            <th style="width:30%;"></th>
+          </tr>
+  
+          <tr>
+            <th></th>
+            <th style="width:20%;"></th>
+            <th style="background-color:#dfe6ea" class="cursive">Start date : </th>
+            <th colspan="4" style="background-color:#dfe6ea">
+              <!-- <form method="post" action=""> -->
+                  <p class="cursive">{{startDate}}</p>
+            <!-- </form> -->
+            </th>
+            <th style="width:30%;"></th>
+          </tr>
+  
+          <tr>
+            <th></th>
+            <th style="width:20%;"></th>
+            <th style="background-color:#dfe6ea" class="cursive">End date : </th>
+            <th colspan="4" style="background-color:#dfe6ea">
+              <!-- <form method="post" action=""> -->
+                  <p class="cursive">{{endDate}}</p>
+            <!-- </form> -->
+            </th>
+            <th style="width:30%;"></th>
+          </tr>
+  
+          <tr>
+            <th></th>
+            <th style="width:20%;"></th>
+            <th style="background-color:#dfe6ea" class="cursive">Reason : </th>
+            <th colspan="4" style="background-color:#dfe6ea">
+              <!-- <form method="post" action=""> -->
+                  <p class="cursive">{{reason}}</p>
+            <!-- </form> -->
+            </th>
+            <th style="width:30%;"></th>
+          </tr>
+  
+          <!------------------------------- Button -------------------------------->
+          <tr>
+            <th></th>
+            <th style="width:20%;"></th>
+            <th colspan="5" style="background-color:#dfe6ea">
+              <a href="/leave/">
+                  <button class="button" type="submit">Back</button>
+              </a>
+            </th>
+            <th style="width:30%;"></th>
+          </tr>
+        </table>
+  </div>
+  
+</body>
 </html>
 
 <!------------------------------- testing -------------------------------->
