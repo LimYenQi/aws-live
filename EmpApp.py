@@ -185,7 +185,7 @@ def checkOut():
         CheckinTime= cursor.fetchall()
        
         for row in CheckinTime:
-            formatted_login = row['check_in']
+            formatted_login = row
             print(formatted_login)
         
 
